@@ -50,7 +50,7 @@
         </div>
       </div>
       <router-link to="/issue/list" class="grid-item btn btn-primary shadow">
-        <div class="card-body d-flex justify-content-center align-items-center flex-column gap-3">
+        <div class="card-body d-flex justify-content-center align-items-center flex-column gap-1 py-4">
           <i class="iconly-Arrow-Right-Square icli fs-2"></i>
           <h1 class="text-white m-0">More</h1>
         </div>

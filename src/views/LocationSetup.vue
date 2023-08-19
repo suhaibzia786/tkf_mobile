@@ -3,24 +3,8 @@
 .vs__dropdown-toggle {
   padding: 5px 0;
 }
-
-.form-floating > .form-select, .form-floating > .form-control {
-  padding: 0px 15px !important;
-  height: 50px;
-}
-
-#map {
-  height: 400px;
-}
 </style>
 <template>
-  <!-- loader strat -->
-  <!--    <div class="loader" v-if="loading">-->
-  <!--        <span></span>-->
-  <!--        <span></span>-->
-  <!--    </div>-->
-  <!-- loader end -->
-  <!-- login section start -->
   <section class="form-section px-15 top-space section-b-space">
     <div class="d-flex justify-content-around align-items-center gap-3 mb-5">
       <img :src="EPILogo2()" class="shadow" alt="epi-logo"
@@ -38,7 +22,8 @@
            role="alert">
         {{ response.message }}
       </div>
-      <div class="form-floating mb-3">
+      <div class="form-group mb-3">
+        <label for="district_id">Site Type</label>
         <select class="form-select" style="padding-top: 10px !important;" id="site_type"
                 :disabled="attendance.length>0"
                 @change="getDistricts()" v-model="form.site_type" name="site_type">
@@ -46,9 +31,9 @@
           <option value="OS">Outreach Site</option>
           <option value="FS">Fixed Site</option>
         </select>
-        <label for="district_id">Site Type</label>
       </div>
-      <div class="form-floating mb-3">
+      <div class="form-group mb-3">
+        <label for="district_id">District</label>
         <select class="form-select" style="padding-top: 10px !important;" id="district_id" @change="getTowns()"
                 :disabled="attendance.length>0"
                 v-model="form.district" name="district_id">
@@ -57,9 +42,9 @@
             {{ district.district }}
           </option>
         </select>
-        <label for="district_id">District</label>
       </div>
-      <div class="form-floating mb-3">
+      <div class="form-group mb-3">
+        <label for="uc">Town/Taluqa</label>
         <select class="form-select" style="padding-top: 10px !important;" id="town_taluqa" @change="getUCs()"
                 :disabled="attendance.length>0"
                 v-model="form.town_taluqa" name="town_taluqa">
@@ -67,28 +52,25 @@
           <option v-for="(town, key) in towns" :key="key" :value="town.town_taluqa">{{ town.town_taluqa }}
           </option>
         </select>
-        <label for="uc">Town/Taluqa</label>
       </div>
-      <div class="form-floating mb-3">
+      <div class="form-group mb-3">
+        <label for="uc">UC</label>
         <select class="form-select" style="padding-top: 10px !important;" id="uc" @change="getAreaSite()"
                 :disabled="attendance.length>0"
                 v-model="form.uc" name="uc">
           <option value="">Select UC</option>
           <option v-for="(uc, key) in ucs" :key="key" :value="uc.uc">{{ uc.uc }}</option>
         </select>
-        <label for="uc">UC</label>
       </div>
-      <div class="form-floating mb-3">
-        <v-select v-model="form.area_site" :options="areas"></v-select>
+      <div class="form-group mb-3">
         <label for="uc">Area/Site</label>
+        <v-select v-model="form.area_site" :options="areas"></v-select>
       </div>
       <button type="submit" class="btn btn-primary w-100">Update Location</button>
     </form>
-    <!--        <div>-->
-    <!--            <div id="map"></div>-->
-    <!--        </div>-->
+    <router-link to="/dashboard" class="btn btn-outline-primary w-100 my-3">Already Submit Attendance</router-link>
+
   </section>
-  <!-- login section end -->
 </template>
 
 <script>
@@ -100,11 +82,7 @@ export default {
   name: 'LocationSetupPage',
   setup() {
   },
-  components: {
-    // LMap,
-    // LTileLayer,
-    // LMarker
-  },
+  components: {},
   props: {},
   data() {
     return {
@@ -137,10 +115,15 @@ export default {
   mounted() {
     const userDetail = this.user ? JSON.parse(this.user) : {}
     this.getAttendance()
-    // this.initializeMap();
-    // if(userDetail.district!=='' && userDetail.town!=='' && userDetail.uc!=='') {
-    //     this.$router.push({path: '/user/dashboard'})
-    // }
+    if (!localStorage.getItem('reloaded')) {
+      // Set the reloaded flag in localStorage
+      localStorage.setItem('reloaded', 'true');
+      // Reload the window
+      window.location.reload();
+    } else {
+      // Clear the reloaded flag if needed
+      localStorage.removeItem('reloaded');
+    }
   },
   methods: {
     TKFLogo2() {
@@ -244,41 +227,7 @@ export default {
           this.message = result.message
         }
       }
-    },
-    // getCoordinates() {
-    //     const geocoder = new Geocoder();
-    //
-    //     geocoder.geocode(this.address)
-    //         .then(result => {
-    //             if (result.length > 0) {
-    //                 const location = result[0].location;
-    //                 this.form.latitude = location.lat;
-    //                 this.form.longitude = location.lng;
-    //                 // this.error = '';
-    //             } else {
-    //                 this.form.latitude = null;
-    //                 this.form.longitude = null;
-    //                 // this.error = 'Address not found';
-    //             }
-    //         })
-    //         .catch(error => {
-    //             this.form.latitude = null;
-    //             this.form.longitude = null;
-    //             // this.error = 'Error fetching coordinates';
-    //             console.error('Error:', error);
-    //         });
-    // },
-    // initializeMap() {
-    //     const map = L.map('map').setView([this.latitude, this.longitude], 13);
-    //
-    //     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    //         attribution: '&copy; OpenStreetMap contributors'
-    //     }).addTo(map);
-    //
-    //     L.marker([this.latitude, this.longitude]).addTo(map)
-    //         .bindPopup('Latitude: ' + this.latitude + '<br>Longitude: ' + this.longitude)
-    //         .openPopup();
-    // }
+    }
   }
 }
 </script>

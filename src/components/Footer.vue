@@ -20,7 +20,7 @@ export default {
   <!-- bottom panel start -->
   <div class="bottom-panel">
     <ul>
-      <li :class="this.$route.name==='Dashboard' ? 'active' : ''">
+      <li :class="this.$route.name==='dashboard' ? 'active' : ''">
         <RouterLink to="/dashboard">
           <div class="icon">
             <i class="iconly-Home icli"></i>
@@ -29,7 +29,7 @@ export default {
           <span>home</span>
         </RouterLink>
       </li>
-      <li :class="this.$route.name==='IssueList' || this.$route.name==='IssueDetail' || this.$route.name==='IssueTracking' ? 'active' : ''">
+      <li :class="this.$route.name==='issue-list' || this.$route.name==='issue-detailing' || this.$route.name==='issue-tracking' ? 'active' : ''">
         <RouterLink to="/issue/list">
           <div class="icon">
             <i class="iconly-Category icli"></i>
@@ -38,7 +38,7 @@ export default {
           <span>Issue List</span>
         </RouterLink>
       </li>
-      <li :class="this.$route.name==='Attendance' ? 'active' : ''">
+      <li :class="this.$route.name==='user-attendance' ? 'active' : ''">
         <RouterLink to="/user/attendance">
           <div class="icon">
             <i class="iconly-Edit icli"></i>
@@ -47,7 +47,7 @@ export default {
           <span>Attendance</span>
         </RouterLink>
       </li>
-      <li :class="this.$route.name==='Profile' ? 'active' : ''">
+      <li :class="this.$route.name==='user-profile' ? 'active' : ''">
         <RouterLink to="/user/profile">
           <div class="icon">
             <i class="iconly-Profile icli"></i>

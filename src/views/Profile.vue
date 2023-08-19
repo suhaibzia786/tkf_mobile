@@ -6,15 +6,15 @@
             <h1>{{ user.name }}</h1>
             <h2>{{ user.user_role.role }}</h2>
             <h2>{{ user.phone }}</h2>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Reset
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#passwordResetModal">Reset
                 Password
             </button>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            <div class="modal fade" id="passwordResetModal" tabindex="-1" aria-labelledby="passwordResetModal"
                  aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Reset Password</h5>
+                            <h5 class="modal-title" id="passwordResetModal">Reset Password</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -68,7 +68,7 @@ export default {
             e.preventDefault()
             const response = await API.post('updatePassword/' + this.user.id, this.form)
             if (response.data && response.data.status) {
-                const modal = document.getElementById("exampleModal")
+                const modal = document.getElementById("passwordResetModal")
                 const modalBackdrop = document.getElementsByClassName("modal-backdrop")
                 modal.classList.remove('show')
                 modalBackdrop[0].classList.remove('show')
