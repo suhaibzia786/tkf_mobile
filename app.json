@@ -7,7 +7,7 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splash_screen.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -21,10 +21,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.suhaibzia786.issuetracker"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./assets/tkf-logo-2.jpg"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b96ad9e2-9aa8-458a-a7c0-55d13aa5cd10"
+      }
+    },
+    "owner": "suhaibzia786"
   }
 }
