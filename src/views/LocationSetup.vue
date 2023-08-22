@@ -25,7 +25,6 @@
       <div class="form-group mb-3">
         <label for="district_id">Site Type</label>
         <select class="form-select" style="padding-top: 10px !important;" id="site_type"
-                :disabled="attendance.length>0"
                 @change="getDistricts()" v-model="form.site_type" name="site_type">
           <option value="">Select Site Type</option>
           <option value="OS">Outreach Site</option>
@@ -35,7 +34,6 @@
       <div class="form-group mb-3">
         <label for="district_id">District</label>
         <select class="form-select" style="padding-top: 10px !important;" id="district_id" @change="getTowns()"
-                :disabled="attendance.length>0"
                 v-model="form.district" name="district_id">
           <option value="">Select District</option>
           <option v-for="(district, key) in districts" :key="key" :value="district.district">
@@ -46,7 +44,6 @@
       <div class="form-group mb-3">
         <label for="uc">Town/Taluqa</label>
         <select class="form-select" style="padding-top: 10px !important;" id="town_taluqa" @change="getUCs()"
-                :disabled="attendance.length>0"
                 v-model="form.town_taluqa" name="town_taluqa">
           <option value="">Select Town/Taluqa</option>
           <option v-for="(town, key) in towns" :key="key" :value="town.town_taluqa">{{ town.town_taluqa }}
@@ -56,7 +53,6 @@
       <div class="form-group mb-3">
         <label for="uc">UC</label>
         <select class="form-select" style="padding-top: 10px !important;" id="uc" @change="getAreaSite()"
-                :disabled="attendance.length>0"
                 v-model="form.uc" name="uc">
           <option value="">Select UC</option>
           <option v-for="(uc, key) in ucs" :key="key" :value="uc.uc">{{ uc.uc }}</option>
