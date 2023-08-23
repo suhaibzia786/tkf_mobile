@@ -27,7 +27,7 @@
         <div class="w-100 rounded p-2 d-flex flex-column bg-white shadow border gap-2">
             <div class=" d-flex justify-content-between align-items-center ">
                 <div class="content d-flex flex-column gap-1"
-                     @click="navigateToDestination(data.base_data.issueDetail ? 'IssueTracking' : 'IssueDetail', data)"
+                     @click="navigateToDestination(data.base_data.issueDetail ? 'issue-tracking' : 'issue-detailing', data)"
                      style="cursor: pointer">
                     <h4 class="fw-bold text-uppercase">{{ data.issue.title }}</h4>
                     <h6>
@@ -51,7 +51,7 @@
                            title="Tracking"></i>
                     </div>
                     <div class="btn btn-primary shadow btn-sm"
-                         @click="navigateToDestination('IssueDetail', data)"
+                         @click="navigateToDestination('issue-detailing', data)"
                          style="cursor: pointer">
                         <i class="iconly-Edit icli" style="font-size: 20px"
                            title="Add Details"></i>
