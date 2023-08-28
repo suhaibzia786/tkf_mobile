@@ -2,10 +2,10 @@
     <section class="alert-classic section-b-space pt-0" style="margin-top: 90px;">
         <div class="d-flex just-content-center align-items-center gap-1 px-2">
             <button class="btn w-100" :class="tabActive==='os' ? 'btn-primary' : 'btn-secondary'"
-                    @click="changeTab('os')">OS Issues
+                    @click="changeTab('os')">Outreach
             </button>
             <button class="btn w-100" :class="tabActive==='fs' ? 'btn-primary' : 'btn-secondary'"
-                    @click="changeTab('fs')">FS Issues
+                    @click="changeTab('fs')">Fixed Site
             </button>
         </div>
         <!--        <div class="bg-red-600 border border-red-400 text-red-700 px-4 py-3 mt-2 rounded relative" role="alert">-->

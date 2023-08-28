@@ -1,6 +1,6 @@
 <style></style>
 <template>
-    <PageHeader title="Submitting Issue Detail" backLink="/user/issue-list"/>
+    <PageHeader title="Submitting Issue Detail" backLink="/issue/list"/>
     <section class="alert-classic top-space section-b-space p-3 my-5">
         <div class="d-flex flex-column justify-content-center align-items-center mb-5 gap-3">
             <h3 class="fw-bolder">{{ this.$route.params.issue_title.replace('_', ' ') }}</h3>

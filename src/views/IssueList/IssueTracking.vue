@@ -1,5 +1,5 @@
 <template>
-    <PageHeader title="Issue Tracking" backLink="/user/issue-list" />
+    <PageHeader title="Issue Tracking" backLink="/issue/list" />
     <section class="alert-classic top-space section-b-space pt-0">
         <div class="container py-4">
             <div class="mb-3">

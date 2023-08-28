@@ -45,7 +45,7 @@
                 </div>
                 <div class="d-flex flex-column gap-1">
                     <div class="btn btn-info shadow btn-sm"
-                         @click="navigateToDestination('IssueTracking', data)"
+                         @click="navigateToDestination('issue-tracking', data)"
                          style="cursor: pointer" v-if="data.base_data.issueDetail">
                         <i class="iconly-Search icli" style="font-size: 20px"
                            title="Tracking"></i>
